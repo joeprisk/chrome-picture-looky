@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: Flickr', function () {
+describe('Service: flickr', function () {
 
   // load the service's module
-  beforeEach(module('flickrtestApp'));
+  beforeEach(module('flickrSearchApp'));
 
   // instantiate service
-  var Flickr;
-  beforeEach(inject(function (_Flickr_) {
-    Flickr = _Flickr_;
+  var flickr;
+  beforeEach(inject(function (_flickr_) {
+    flickr = _flickr_;
   }));
 
   it('should do something', function () {
-    expect(!!Flickr).toBe(true);
+    expect(!!flickr).toBe(true);
   });
 
 });

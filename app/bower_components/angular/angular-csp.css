@@ -11,8 +11,3 @@
 ng\:form {
   display: block;
 }
-
-[data-ng-click], a {
-    cursor: pointer!important;
-
-}

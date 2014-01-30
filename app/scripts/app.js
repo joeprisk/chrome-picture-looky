@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('flickrtestApp', ['augeo']);
+angular.module('flickrSearchApp', []);

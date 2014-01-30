@@ -1,10 +1,13 @@
 {
-  "name": "flickrtest",
+  "name": "flickrSearchApp",
   "version": "0.0.0",
   "dependencies": {
-      "angular": "*",
-      "jquery" : "*",
-      "bootstrap": "*"
+    "angular": "*",
+    "angular-mocks": "*",
+    "jquery" : "*",
+    "bootstrap": "*",
+    "karma":"*"
   },
-  "devDependencies": {}
+  "devDependencies": {
+  }
 }
