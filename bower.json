@@ -1,0 +1,10 @@
+{
+  "name": "flickrtest",
+  "version": "0.0.0",
+  "dependencies": {
+      "angular": "*",
+      "jquery" : "*",
+      "bootstrap": "*"
+  },
+  "devDependencies": {}
+}

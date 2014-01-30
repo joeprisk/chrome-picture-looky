@@ -1,0 +1,37 @@
+/* Will be compiled down to a single stylesheet with your sass files */
+
+html {
+    /* Defaults css for cssmin process */
+    width:375px;
+    height:550px;
+}
+body {
+    overflow: hidden;
+}
+.flickr {
+    margin: 5px;
+    border: 2px solid black;
+    display:inline;
+    vertical-align: middle;
+}
+.small {
+    width: 75px;
+    height: 75px;
+}
+.large {
+    width:347px;
+    height:347px;
+}
+.paginationContainer {
+    position: fixed;
+    bottom: 0;
+}
+.loading {
+    margin-top:30px;
+}
+.overlay {
+    border: 1px solid #070707;
+    border-radius: 4px;
+    margin-top: 20px;
+    padding: 0.8em;
+}

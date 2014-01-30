@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/angular/angular-csp.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <!-- build:js scripts/popup.js -->
+    <script src="scripts/popup.js"></script>
+    <!-- endbuild -->
+</head>
+<body data-ng-app="flickrtestApp" data-ng-cloak>
+<div class="container" data-ng-controller="displayCtrl">
+    &NonBreakingSpace;
+    <div>
+        <div class="input-group">
+            <input type="text" class="form-control" data-ng-model="searchTerm" placeholder="search flickr from here...">
+            <span class="input-group-addon" data-ng-click="search()"><i class="glyphicon glyphicon-search"></i></span>
+        </div>
+    </div>
+    <div class="loading" data-ng-show="loading == 'loading'"><img src="images/ajax-loader.gif">Loading...</div>
+
+    <div data-ng-show="!image && images">
+        <img
+                data-ng-repeat="photo in images"
+                class="flickr small"
+                data-ng-click="setOverlay($index)"
+                data-ng-src="{{'http://farm' + photo.farm +'.staticflickr.com/' + photo.server+
+                '/' + photo.id +
+                '_' + photo.secret +
+                '_s.jpg'}}">
+    </div>
+    <div data-ng-show="image" class="overlay"><span class="pull-right" data-ng-click="image=null">&times;</span>
+        <img data-ng-src="{{'http://farm' + images[image].farm +'.staticflickr.com/' + images[image].server+
+                '/' + images[image].id +
+                '_' + images[image].secret +
+                '_n.jpg'}}">
+        <p>{{image.title}}</p>
+    </div>
+
+    <div class="paginationContainer">
+        <ul class="pagination">
+            <li data-ng-repeat="(k,v) in pages" data-ng-class="{active: page==v}"><a data-ng-click="setPage(v)">{{v}}</a></li>
+        </ul>
+    </div>
+</div>
+<!-- CHROME EXTENSION POPUP -->
+
+
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="components/augeo-angular/src/augeo.js"></script>
+<script src="components/augeo-angular/src/services/db.js"></script>
+<script src="components/augeo-angular/src/services/message.js"></script>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/services/flickr.js"></script>
+<script src="scripts/controllers/display.js"></script>
+</body>
+</html>
