@@ -2,12 +2,13 @@
   "name": "flickrSearch",
   "version": "0.0.0",
   "dependencies": {
-    "karma":                "*",
-    "karma-coverage":       "*",
+    "karma": "*",
+    "karma-coverage": "*",
     "karma-junit-reporter": "*"
-    },
+  },
   "devDependencies": {
-
+    "karma": "~0.10",
+    "karma-htmlfile-reporter": "~0.1.0"
   },
   "engines": {
     "node": ">=0.8.0"

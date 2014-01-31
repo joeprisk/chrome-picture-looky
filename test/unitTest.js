@@ -12,6 +12,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     plugins : [
+		'karma-htmlfile-reporter',
         'karma-junit-reporter',
         'karma-phantomjs-launcher',
         'karma-jasmine',
@@ -31,13 +32,29 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      
+
     ],
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['progress', 'junit', 'coverage', 'html'],
+    htmlReporter: {
+  	  outputFile: 'test/results.html'
+    },
+
+	preprocessors: {
+	 // source files, that you wanna generate coverage for
+	 // do not include tests or libraries
+	 // (these files will be instrumented by Istanbul)
+	 'app/scripts/**/*.js': ['coverage']
+	},
+
+	// optionally, configure the reporter
+	coverageReporter: {
+	 type : 'html',
+	 dir : 'coverage/'
+	},
 
 
     // web server port
@@ -74,6 +91,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };
