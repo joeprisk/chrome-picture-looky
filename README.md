@@ -1,5 +1,7 @@
 A simple chrome app to search images
 
+This is written because I was bored it is not a serious project but a simple play with anglarjs and building a chrome extension without much real use. you can however use this to serach kittens on flickr very easily!
+
 To install this first load bower components
 
 ```python
@@ -20,4 +22,6 @@ to test load npm modues
 
 ```python
    npm install
+   ./node_modules/karma/bin/karma start test/unitTest.js
 ```
+
