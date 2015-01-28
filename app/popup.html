@@ -19,7 +19,7 @@
     </div>
     <div class="loading" data-ng-if="display.loading.images"><img src="images/ajax-loader.gif">Loading...</div>
 
-    <div>
+    <div data-ng-show="display.images && !display.image">
         <img
                 data-ng-repeat="photo in display.images"
                 class="flickr small"
@@ -30,7 +30,7 @@
                 '_s.jpg'}}" />
     </div>
     <div data-ng-show="display.image" class="overlay"><span class="pull-right" data-ng-click="display.setOverlay()">&times;</span>
-        <img data-ng-src="{{'http://farm' + images[image].farm +'.staticflickr.com/' + display.images[display.image].server+
+        <img data-ng-src="{{'http://farm' + display.images[display.image].farm +'.staticflickr.com/' + display.images[display.image].server+
                 '/' + display.images[display.image].id +
                 '_' + display.images[display.image].secret +
                 '_n.jpg'}}">
