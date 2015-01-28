@@ -1,5 +1,5 @@
 {
-  "name": "flickrSearch",
+  "name": "chrome-picture-looky",
   "version": "0.0.0",
   "dependencies": {
     "karma": "*",

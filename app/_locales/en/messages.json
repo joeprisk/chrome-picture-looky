@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "flickrTest",
-    "description": "The name of the application"
+    "message": "Chrome picture looky",
+    "description": "Chrome app to look at pictures in a pop up"
   },
   "appDescription": {
-    "message": "display flick search results - proof I can write ",
+    "message": "display image search results - I was bored so thought I'd write a chrome app",
     "description": "The description of the application"
   }
 }
