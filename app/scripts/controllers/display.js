@@ -3,40 +3,42 @@
 angular.module('flickrSearchApp')
     .controller('displayCtrl', ['$scope', 'flickr', function ($scope, flickr) {
 
-        $scope.pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        /** View model*/
+        var vm = this;
 
-        $scope.page = 1;
+        /**
+         * View variables
+         */
+        vm.pages      = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        vm.page       = flickr.page;
+        vm.searchTerm = '';
+        vm.image      = null;
+        vm.images     = flickr.images;
+        vm.loading    = flickr.loading;
 
-        $scope.search = function () {
+        /**
+         * View functions
+         */
+        vm.search     = search;
+        vm.setPage    = setPage;
+        vm.setOverlay = setOverlay;
 
-            $scope.page = 1;
-            pullImages();
+        function search() {
 
+            flickr.search(vm.searchTerm);
         }
 
-        var pullImages = function () {
+        function setPage(page) {
 
-            $scope.images   = null;
-            $scope.loading  = 'loading';
-            flickr.search($scope.searchTerm, $scope.page, 'imagesLoaded');
+            vm.page = page;
+            search();
         }
 
-        $scope.$on('imagesLoaded', function (event, data) {
 
-            $scope.loading  = 'loaded';
-            $scope.page     = data.page;
-            $scope.images   = data.photo;
-        });
 
-        $scope.setOverlay = function (index) {
+        function setOverlay (index) {
 
-            $scope.image = index;
+            vm.image = index;
 
-        }
-
-        $scope.setPage = function (page) {
-
-            $scope.page = page;
-            pullImages();
         }
     }]);

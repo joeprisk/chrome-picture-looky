@@ -8,38 +8,38 @@
     <!--<script src="scripts/popup.js"></script>-->
     <!-- endbuild -->
 </head>
-<body data-ng-app="flickrSearchApp" data-ng-cloak>
-<div class="container" data-ng-controller="displayCtrl">
+<body data-ng-app="flickrSearchApp">
+<div class="container" data-ng-controller="displayCtrl as display">
     &NonBreakingSpace;
     <div>
         <div class="input-group">
-            <input type="text" class="form-control" data-ng-model="searchTerm" placeholder="search flickr from here...">
-            <span class="input-group-addon" data-ng-click="search()"><i class="glyphicon glyphicon-search"></i></span>
+            <input type="text" class="form-control" data-ng-model="display.searchTerm" placeholder="search flickr from here...">
+            <span class="input-group-addon" data-ng-click="display.search()"><i class="glyphicon glyphicon-search"></i></span>
         </div>
     </div>
-    <div class="loading" data-ng-show="loading == 'loading'"><img src="images/ajax-loader.gif">Loading...</div>
+    <div class="loading" data-ng-if="display.loading.images"><img src="images/ajax-loader.gif">Loading...</div>
 
-    <div data-ng-show="!image && images">
+    <div>
         <img
-                data-ng-repeat="photo in images"
+                data-ng-repeat="photo in display.images"
                 class="flickr small"
-                data-ng-click="setOverlay($index)"
+                data-ng-click="display.setOverlay($index)"
                 data-ng-src="{{'http://farm' + photo.farm +'.staticflickr.com/' + photo.server+
                 '/' + photo.id +
                 '_' + photo.secret +
-                '_s.jpg'}}">
+                '_s.jpg'}}" />
     </div>
-    <div data-ng-show="image" class="overlay"><span class="pull-right" data-ng-click="image=null">&times;</span>
-        <img data-ng-src="{{'http://farm' + images[image].farm +'.staticflickr.com/' + images[image].server+
-                '/' + images[image].id +
-                '_' + images[image].secret +
+    <div data-ng-show="display.image" class="overlay"><span class="pull-right" data-ng-click="display.setOverlay()">&times;</span>
+        <img data-ng-src="{{'http://farm' + images[image].farm +'.staticflickr.com/' + display.images[display.image].server+
+                '/' + display.images[display.image].id +
+                '_' + display.images[display.image].secret +
                 '_n.jpg'}}">
         <p>{{image.title}}</p>
     </div>
 
     <div class="paginationContainer">
         <ul class="pagination">
-            <li data-ng-repeat="(k,v) in pages" data-ng-class="{active: page==v}"><a data-ng-click="setPage(v)">{{v}}</a></li>
+            <li data-ng-repeat="(k,v) in display.pages" data-ng-class="{active: display.page==v}"><a data-ng-click="display.setPage(v)">{{v}}</a></li>
         </ul>
     </div>
 </div>
