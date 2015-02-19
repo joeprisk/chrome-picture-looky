@@ -1,9 +1,6 @@
 .idea
-<<<<<<< HEAD
-node_modules/
 coverage/
 test-results.xml
-=======
 app/bower_components
 node_modules
 test
@@ -11,4 +8,3 @@ app.*
 .DS_Store
 coverage
 npm-debug.log
->>>>>>> df43b8a183816d2b0316fe5929bf7e1c0a618852
