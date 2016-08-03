@@ -1,22 +1,29 @@
-'use strict';
+(function() {
+    'use strict';
 
 angular.module('flickrSearchApp')
-  .service('flickr', ['$rootScope','$http', function ($rootScope, $http) {
+  .service('flickr', flickr);
+  
+  flickr.$inject = ['$rootScope','$http'];
+  
+  function flickr($rootScope, $http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
-        var serviceModel = {
-            search : flickrPull,
-            images : [],
-            loading : {
-                images : false
-            },
-            page : 1
-        };
+	    var options = {
+		    key :    "b044f705296205f71f35f96c5273129d",
+		    secret : "9402706679edf869"
+	    }
+        var serviceModel = {};
+        
+    	serviceModel.search : flickrPull;
+    	serviceModel.images : [];
+    	serviceModel.loading : {
+        	images : false
+    	};
+    	serviceModel.page : 1;
 
-		var options = {
-			key : "b044f705296205f71f35f96c5273129d",
-			secret : "9402706679edf869"
-		};
+        return serviceModel;
+        
         function flickrPull(search) {
 
             loading();
@@ -59,6 +66,5 @@ angular.module('flickrSearchApp')
 
         }
 
-        return serviceModel;
-
-  }]);
+  }
+}());
